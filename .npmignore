@@ -1,0 +1,13 @@
+# Published package ships only dist/ (via package.json "files").
+# This file keeps source/test/config out even if "files" is edited.
+src/
+test/
+bench/
+scripts/
+*.config.ts
+tsconfig.json
+biome.json
+coverage/
+.github/
+# Ship a lean tarball: keep source maps out of the published package.
+*.map

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <!-- background -->
+  <rect x="0" y="0" width="1280" height="640" fill="#0d1117"/>
+  <rect x="0" y="0" width="1280" height="6" fill="#7ee787"/>
+
+  <!-- left column -->
+  <text x="80" y="250" font-size="72" font-weight="700" fill="#e6edf3">coerce<tspan fill="#7ee787">-json</tspan></text>
+  <text x="82" y="304" font-size="26" fill="#c9d1d9">Repair &amp; coerce LLM JSON to your schema</text>
+  <text x="82" y="340" font-size="19" fill="#8b949e">every fix logged · never fabricates data</text>
+
+  <!-- feature chips -->
+  <g font-size="18" fill="#c9d1d9">
+    <rect x="80" y="376" width="196" height="44" rx="22" fill="#161b22" stroke="#30363d"/>
+    <text x="178" y="404" text-anchor="middle">zero-dependency</text>
+    <rect x="288" y="376" width="224" height="44" rx="22" fill="#161b22" stroke="#30363d"/>
+    <text x="400" y="404" text-anchor="middle">Zod + JSON Schema</text>
+    <rect x="524" y="376" width="118" height="44" rx="22" fill="#161b22" stroke="#30363d"/>
+    <text x="583" y="404" text-anchor="middle">~3.6 kB</text>
+  </g>
+
+  <!-- install line -->
+  <text x="82" y="508" font-size="25"><tspan fill="#7ee787">$</tspan> <tspan fill="#c9d1d9">npm install coerce-json</tspan></text>
+
+  <!-- terminal card (right) -->
+  <rect x="700" y="96" width="500" height="448" rx="14" fill="#010409" stroke="#30363d" stroke-width="1"/>
+  <rect x="700" y="96" width="500" height="46" rx="14" fill="#161b22"/>
+  <rect x="700" y="128" width="500" height="14" fill="#161b22"/>
+  <circle cx="726" cy="119" r="6.5" fill="#ff5f56"/>
+  <circle cx="748" cy="119" r="6.5" fill="#ffbd2e"/>
+  <circle cx="770" cy="119" r="6.5" fill="#27c93f"/>
+  <text x="975" y="124" text-anchor="middle" font-size="14" fill="#8b949e">coerce(raw, schema)</text>
+
+  <!-- body: before → after → changes -->
+  <text x="724" y="190" font-size="15" fill="#6e7681">// almost-valid model output</text>
+  <text x="724" y="228" font-size="18"><tspan fill="#8b949e">{ </tspan><tspan fill="#7ee787">"id"</tspan><tspan fill="#8b949e">: </tspan><tspan fill="#a5d6ff">"42"</tspan><tspan fill="#8b949e">, </tspan><tspan fill="#7ee787">"active"</tspan><tspan fill="#8b949e">: </tspan><tspan fill="#a5d6ff">"true"</tspan><tspan fill="#8b949e"> }</tspan></text>
+  <text x="724" y="274" font-size="18" fill="#7ee787">↓  coerce(raw, schema)</text>
+  <text x="724" y="320" font-size="18"><tspan fill="#8b949e">{ </tspan><tspan fill="#c9d1d9">id</tspan><tspan fill="#8b949e">: </tspan><tspan fill="#ffa657">42</tspan><tspan fill="#8b949e">, </tspan><tspan fill="#c9d1d9">active</tspan><tspan fill="#8b949e">: </tspan><tspan fill="#d2a8ff">true</tspan><tspan fill="#8b949e"> }</tspan></text>
+  <text x="724" y="364" font-size="15"><tspan fill="#8b949e">changes: </tspan><tspan fill="#c9d1d9">string→number, string→boolean</tspan></text>
+  <text x="724" y="398" font-size="15"><tspan fill="#27c93f">✓ ok</tspan><tspan fill="#6e7681">  — every fix logged, nothing invented</tspan></text>
+</svg>

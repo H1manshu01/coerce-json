@@ -1,0 +1,106 @@
+{
+  "name": "coerce-json",
+  "version": "0.1.0",
+  "description": "Zero-dependency repair & schema coercion for LLM JSON output — turn almost-valid model output into a value that fits your Zod (or JSON Schema) schema, and get every fix logged.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Himanshu Sharma",
+  "sideEffects": false,
+  "keywords": [
+    "json",
+    "coerce",
+    "coercion",
+    "repair",
+    "schema",
+    "zod",
+    "json-schema",
+    "ajv",
+    "llm",
+    "ai",
+    "openai",
+    "anthropic",
+    "structured-output",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/H1manshu01/coerce-json.git"
+  },
+  "homepage": "https://github.com/H1manshu01/coerce-json#readme",
+  "bugs": {
+    "url": "https://github.com/H1manshu01/coerce-json/issues"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./zod": {
+      "types": "./dist/zod.d.ts",
+      "import": "./dist/zod.js",
+      "require": "./dist/zod.cjs"
+    },
+    "./json-schema": {
+      "types": "./dist/json-schema.d.ts",
+      "import": "./dist/json-schema.js",
+      "require": "./dist/json-schema.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "size": "size-limit",
+    "smoke": "node scripts/smoke.mjs",
+    "bench": "tsx bench/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@size-limit/preset-small-lib": "^11.1.6",
+    "@types/node": "^22.20.5",
+    "ajv": "^8.17.1",
+    "fast-check": "^3.23.1",
+    "size-limit": "^11.1.6",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "zod": "^3.24.1"
+  },
+  "overrides": {
+    "esbuild": "^0.28.2"
+  },
+  "peerDependencies": {
+    "ajv": ">=8",
+    "zod": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "ajv": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "size-limit": [
+    {
+      "name": "core (coerce, zero-dep)",
+      "path": "dist/index.js",
+      "limit": "6 kB"
+    }
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" role="img" aria-label="coerce-json repairing almost-valid LLM JSON to fit a schema, with every fix logged">
+  <defs>
+    <style>
+      .k { fill: #7ee787; }  /* keys */
+      .s { fill: #a5d6ff; }  /* strings */
+      .n { fill: #ffa657; }  /* numbers */
+      .b { fill: #d2a8ff; }  /* booleans */
+      .p { fill: #8b949e; }  /* punctuation */
+      .c { fill: #6e7681; }  /* comments */
+      .t { font-size: 15px; }
+    </style>
+  </defs>
+
+  <!-- terminal card -->
+  <rect x="0" y="0" width="720" height="430" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <rect x="0" y="0" width="720" height="40" rx="12" fill="#161b22"/>
+  <rect x="0" y="28" width="720" height="12" fill="#161b22"/>
+  <circle cx="22" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="20" r="6" fill="#27c93f"/>
+  <text x="360" y="25" text-anchor="middle" font-size="13" fill="#8b949e">coerce(raw, User) · repair + validate</text>
+
+  <!-- loop clock: re-fires every cycle so the reveal restarts cleanly -->
+  <rect width="0" height="0">
+    <animate id="loop" attributeName="width" begin="0s;loop.end" dur="7.6s" values="0;0"/>
+  </rect>
+
+  <!-- what the model sent -->
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+0.2s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t c" x="28" y="80">// what the model sent</text>
+    <text class="t c" x="28" y="104">```json</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+0.9s" dur="0.25s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t" x="28" y="128"><tspan class="p">{ </tspan><tspan class="k">"id"</tspan><tspan class="p">: </tspan><tspan class="s">"42"</tspan><tspan class="p">, </tspan><tspan class="k">"active"</tspan><tspan class="p">: </tspan><tspan class="s">"true"</tspan><tspan class="p">, </tspan><tspan class="k">"status"</tspan><tspan class="p">: </tspan><tspan class="s">"ACTIVE"</tspan><tspan class="p"> }</tspan></text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+1.3s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t c" x="28" y="152">```</text>
+  </g>
+
+  <!-- coerce -->
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+2.1s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t" x="28" y="192" fill="#7ee787">↓  coerce(raw, User)</text>
+  </g>
+
+  <!-- coerced result -->
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+2.7s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t c" x="28" y="230">// coerced to fit your schema</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+3.3s" dur="0.25s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t" x="28" y="254"><tspan class="p">{ </tspan><tspan class="p">id</tspan><tspan class="p">: </tspan><tspan class="n">42</tspan><tspan class="p">, </tspan><tspan class="p">active</tspan><tspan class="p">: </tspan><tspan class="b">true</tspan><tspan class="p">, </tspan><tspan class="p">status</tspan><tspan class="p">: </tspan><tspan class="s">"active"</tspan><tspan class="p">, </tspan><tspan class="p">role</tspan><tspan class="p">: </tspan><tspan class="s">"user"</tspan><tspan class="p"> }</tspan></text>
+  </g>
+
+  <!-- changes log -->
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+4.1s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t p" x="28" y="294">changes: <tspan fill="#c9d1d9">strip-fence · string→number · string→boolean</tspan></text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+4.7s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t p" x="28" y="318"><tspan fill="#c9d1d9">         enum-fuzzy (case-insensitive) · fill-default</tspan></text>
+  </g>
+
+  <!-- ok -->
+  <g opacity="0">
+    <animate attributeName="opacity" begin="loop.begin+5.4s" dur="0.2s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="loop.begin+7.2s" dur="0.2s" to="0" fill="freeze"/>
+    <text class="t" x="28" y="358"><tspan fill="#27c93f">✓ ok</tspan><tspan class="c"> — value fits the schema, nothing invented</tspan></text>
+  </g>
+
+  <!-- blinking caret -->
+  <rect x="28" y="382" width="9" height="18" fill="#7ee787">
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <text class="t c" x="44" y="396">coerce(raw, schema) → { value, ok, changes }</text>
+</svg>
