@@ -1,11 +1,11 @@
 ---
 title: "Your LLM returned almost-valid JSON. Stop hand-patching it."
-published: false
+published: true
 description: "Models hand back JSON that's structurally close but type-wrong — numbers as strings, booleans as \"yes\", wrapped in a code fence. Here's coerce-json: a zero-dependency library that repairs it to fit your Zod (or JSON Schema) schema and logs every single fix."
 tags: javascript, typescript, ai, opensource
 cover_image: https://raw.githubusercontent.com/H1manshu01/coerce-json/main/assets/cover.png
 series: "Streaming structured output"
-canonical_url: https://dev.to/h1manshu01/your-llm-returned-almost-valid-json-stop-hand-patching-it
+canonical_url: https://dev.to/h1manshu01/your-llm-returned-almost-valid-json-stop-hand-patching-it-2fma
 ---
 
 You asked the model for `{ id: number, active: boolean }`. Here's what came
