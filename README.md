@@ -305,6 +305,19 @@ npm run lint      # Biome
 npm run bench     # correctness + coercion benchmark vs. incumbents
 ```
 
+## Part of the suite
+
+`coerce-json` is one of a small line of zero-dependency TypeScript packages for LLM tooling, each useful on its own:
+
+- **[`sse-wire`](https://www.npmjs.com/package/sse-wire)** — fetch-based SSE transport; POST the request, stream the events.
+- **[`trickle-json`](https://www.npmjs.com/package/trickle-json)** — incremental partial-JSON parser; the best valid value on every chunk.
+- **[`coerce-json`](https://www.npmjs.com/package/coerce-json)** — repair and coerce that value to fit your Zod / JSON Schema, logging every fix. *(this package)*
+- **[`trickle-react`](https://www.npmjs.com/package/trickle-react)** — React hooks that render the streaming pipeline field by field.
+- **[`expect-llm`](https://www.npmjs.com/package/expect-llm)** — assert LLM output in Vitest or Jest.
+- **[`retry-wire`](https://www.npmjs.com/package/retry-wire)** — provider-aware retry and throttle for the request that opens the stream.
+- **[`context-budgeter`](https://www.npmjs.com/package/context-budgeter)** — fit a chat history into the model's context window.
+- **[`trickle-structured`](https://www.npmjs.com/package/trickle-structured)** — the **capstone**: one call from `fetch` to a validated object, composing `sse-wire` + `trickle-json` + `coerce-json`.
+
 ## License
 
 MIT © Himanshu Sharma
